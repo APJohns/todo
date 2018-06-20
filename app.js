@@ -14,7 +14,7 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // Require Models
-require('./models/todo');
+require('./models/Todo');
 
 var compression = require('compression');
 var helmet = require('helmet');
