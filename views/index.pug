@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  // Checklist
+  .list
+    h2 Ash's Todo
+    ul#checklist
+      each item in list
+        div
+          if item.done
+            li(id=item._id).done=item.content
+            input(type="checkbox", name='done', checked).doneInput
+          else
+            li(id=item._id)=item.content
+            input(type="checkbox", name='done').doneInput
+          form(action='/delete', method='POST')
+            input(type='hidden', name="_id", value=item._id)
+            input(type='submit' value='X').del
+    form(action="", method="post")#new
+      input(type="text", name="content", required)#content
+      input(type="submit", value="+")#add
+  script(src='/javascripts/main.js')
